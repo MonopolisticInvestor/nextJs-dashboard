@@ -7,6 +7,7 @@ import {
   LatestInvoiceRaw,
   Revenue,
 } from './definitions';
+
 import { formatCurrency } from './utils';
 import { db } from "@vercel/postgres";
 const client = await db.connect();
@@ -18,13 +19,13 @@ export async function fetchRevenue() {
     // Artificially delay a response for demo purposes.
     // Don't do this in production :)
 
-    // console.log('Fetching revenue data...');
-    // await new Promise((resolve) => setTimeout(resolve, 3000));
+    console.log('Fetching revenue data...');
+    await new Promise((resolve) => setTimeout(resolve, 3000));
 
     // const data = await sql<Revenue>`SELECT * FROM revenue`;
 
     const data = await client.sql<Revenue>`SELECT * FROM revenue`;
-    // console.log('Data fetch completed after 3 seconds.');
+    console.log('Data fetch completed after 3 seconds.');
 
     return data.rows;
   } catch (error) {
@@ -71,10 +72,10 @@ export async function fetchCardData() {
       invoiceStatusPromise,
     ]);
 
-    const numberOfInvoices = Number(data[0].rows[0].count ?? '0');
-    const numberOfCustomers = Number(data[1].rows[0].count ?? '0');
-    const totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
-    const totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+    var numberOfInvoices = Number(data[0].rows[0].count ?? '0');
+    var numberOfCustomers = Number(data[1].rows[0].count ?? '0');
+    var totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
+    var totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
     return {
       numberOfCustomers,
