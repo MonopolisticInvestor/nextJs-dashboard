@@ -9,6 +9,8 @@ export default async function Page() {
   const revenue = await fetchRevenue();
   var latestInvoices = await fetchLatestInvoices();
 
+  console.log(await fetchCardData());
+
   var totalPaidInvoices = (await fetchCardData()).totalPaidInvoices;
   var numberOfInvoices = (await fetchCardData()).numberOfInvoices;
   var totalPendingInvoices = (await fetchCardData()).totalPendingInvoices;
