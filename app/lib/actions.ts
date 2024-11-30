@@ -4,8 +4,6 @@ import { z } from 'zod';
 import { db } from "@vercel/postgres";
 import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
-import { error } from 'console';
-import { invoices } from './placeholder-data';
 
 const client = await db.connect();
  

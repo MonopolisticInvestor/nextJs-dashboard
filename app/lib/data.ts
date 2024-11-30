@@ -72,10 +72,10 @@ export async function fetchCardData() {
       invoiceStatusPromise,
     ]);
 
-    var numberOfInvoices = Number(data[0].rows[0].count ?? '0');
-    var numberOfCustomers = Number(data[1].rows[0].count ?? '0');
-    var totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
-    var totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
+    let numberOfInvoices = Number(data[0].rows[0].count ?? '0');
+    let numberOfCustomers = Number(data[1].rows[0].count ?? '0');
+    let totalPaidInvoices = formatCurrency(data[2].rows[0].paid ?? '0');
+    let totalPendingInvoices = formatCurrency(data[2].rows[0].pending ?? '0');
 
     return {
       numberOfCustomers,

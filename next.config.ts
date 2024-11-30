@@ -1,9 +1,9 @@
 import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  // experimental: {
-  //   ppr: 'incremental',
-  // },
+  eslint: {
+    dirs: ["/app/dashboard/page"]
+  }
 };
 
 export default nextConfig;
