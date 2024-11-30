@@ -15,9 +15,9 @@ import { useActionState } from 'react';
 
 export default function EditInvoiceForm({ invoice, customers}: {invoice: InvoiceForm; customers: CustomerField[]; }) {
   const initialState: State = { message: null, errors: {} };
-  const updateInvoiceWithId = updateInvoice.bind(null, invoice.id);
+  const updateInvoiceWithId = updateInvoice.bind(null,invoice.id);
   // add or remove state below:
-  const [state, formAction] = useActionState(updateInvoiceWithId, initialState);
+  const [state, formAction] = useActionState((prevState, formData) => updateInvoice(invoice.id, prevState, formData), initialState);
 
   return (
     <form action={formAction}>
